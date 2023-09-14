@@ -1,13 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+
+<body>
+  <main>
+    <h1 class="title">splitter</h1>
+    <!-- calculation -->
+    <section class="card">
+      <div class="calculation">
+        <form action="/action" class="form">
+          <label for="bill">Bill</label>
+          <input type="text" id="bill" class="bill" name="bill">
+          <div class="icon">
+            <img src="./src/images/icon-dollar.svg" class="icon-img" alt="icon-dollar">
+          </div>
+          <p>select tip %</p>
+          <div class="percentage">
+            <p>5%</p>
+            <p>10%</p>
+            <p>15%</p>
+            <p>25%</p>
+            <p>50%</p>
+            <input data-id="custom" placeholder="custom">
+          </div>
+
+          <label for="peopel">number of people</label>
+          <input type="number" id="people" class="people" name="people"  value="5">
+          <div class="people-icon">
+            <img src="./src/images/icon-person.svg" class="peopel-icon-img" alt="icon-person">
+          </div>
+        </form>
+
+      </div>
+      <!-- show the total -->
+      <div class="show">
+        <div class="amount item">
+          <p>tip amount</p>
+          <p class="price">$42.7</p>
+        </div>
+        <div class="total item">
+          <p>total</p>
+          <p class="price">$32.79</p>
+        </div>
+        <button type="reset" class="btn-reset" data-id="reset">reset</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
 </html>

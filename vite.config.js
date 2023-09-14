@@ -1,3 +1,10 @@
-export default {
-  build: '/tip-calculator-app',
-};
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  server: {
+    watch: {
+      usePolling: true,
+    },
+  },
+});

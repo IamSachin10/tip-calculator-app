@@ -1,0 +1,13 @@
+:root {
+    /* primary */
+    --clr-cyan: hsl(172, 67%, 45%); 
+    /* secondary */
+    --clr-darkCyan: hsl(183,100%,15%);
+    --clr-darkgrayishCyan: hsl(186,14%,43%);
+    --clr-grayishCyan: hsl(185, 41%, 84%);
+    --clr-lightCyan: hsl(189,41%,97%);
+    --clr-white: hsl(0,0%,100%);
+    /* font */
+    --fs-normal: 1.5rem;
+    --fw-700: 700;
+}
