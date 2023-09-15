@@ -16,22 +16,22 @@
       <div class="calculation">
         <form action="/action" class="form">
           <label for="bill">Bill</label>
-          <input type="text" id="bill" class="bill" name="bill">
+          <input type="number" id="bill" class="bill" name="bill" data-id="bill" value="">
           <div class="icon">
             <img src="./src/images/icon-dollar.svg" class="icon-img" alt="icon-dollar">
           </div>
           <p>select tip %</p>
-          <div class="percentage">
-            <p>5%</p>
-            <p>10%</p>
-            <p>15%</p>
-            <p>25%</p>
-            <p>50%</p>
-            <input data-id="custom" placeholder="custom">
+          <div class="percentage" data-id="percentage">
+            <p data-id="5">5%</p>
+            <p data-id="10">10%</p>
+            <p data-id="15">15%</p>
+            <p data-id="25">25%</p>
+            <p data-id="50">50%</p>
+            <input placeholder="custom" type="number" data-id="custom">
           </div>
 
           <label for="peopel">number of people</label>
-          <input type="number" id="people" class="people" name="people"  value="5">
+          <input type="number" id="people" data-id="people" class="people" name="people"  value="5">
           <div class="people-icon">
             <img src="./src/images/icon-person.svg" class="peopel-icon-img" alt="icon-person">
           </div>
@@ -42,11 +42,11 @@
       <div class="show">
         <div class="amount item">
           <p>tip amount</p>
-          <p class="price">$42.7</p>
+          <p class="price" data-id="price">$42.7</p>
         </div>
         <div class="total item">
           <p>total</p>
-          <p class="price">$32.79</p>
+          <p class="price" data-id="total">$32.79</p>
         </div>
         <button type="reset" class="btn-reset" data-id="reset">reset</button>
       </div>
