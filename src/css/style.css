@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import url("./reset.css");
 @import url("./variables.css");
-@import url("./media_queries.css");
+
 
 /* || General */
 
@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding-inline: 1em;
+  padding-inline: 1.5em;
   margin-block-start: 1em;
 }
 
@@ -47,7 +47,7 @@ body {
     flex-direction: column;
     gap: 1em;
     position: relative;
-    
+
     .icon {
       position: absolute;
       top: 12.5%;
@@ -55,14 +55,14 @@ body {
     }
 
     & input {
-      padding-bottom: 0.7em;
+      font-size: var(--fs-normal);
       outline: none;
       border: none;
       border-radius: 5px;
       background-color: var(--clr-lightCyan);
       color: var(--clr-darkCyan);
       font-weight: var(--fw-700);
-     
+      padding-block: 0.3em;
     }
     .bill {
       text-indent: 80%;
@@ -80,19 +80,30 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 1em;
     place-items: center;
+    gap: 1em;
+   
 
-    & p {
+    .btn {
       background-color: var(--clr-darkCyan);
       color: var(--clr-white);
       text-align: center;
-      width: 60%;
+      width: 100%;
       border-radius: 5px;
       font-size: 1.2rem;
       text-transform: capitalize;
+      border: none;
+      cursor: pointer;
+      font-size: var(--fs-normal);
+      padding-block: 0.3em;
+    }
+  
+    .btn:focus {
+      background-color: var(--clr-cyan);
+      color: var(--clr-darkCyan);
     }
     & input {
+      font-size: var(--fs-normal);
       text-align: center;
       text-transform: capitalize;
       outline: none;
@@ -101,7 +112,7 @@ body {
       background-color: var(--clr-lightCyan);
       color: var(--clr-darkCyan);
       font-weight: var(--fw-700);
-      width: 60%;
+      width: 100%;
     }
   }
   #people {
@@ -112,7 +123,6 @@ body {
     position: absolute;
     bottom: 3%;
     left: 5%;
-   
   }
 }
 
@@ -134,7 +144,24 @@ body {
     text-transform: capitalize;
     margin-block-start: 2em;
     margin-inline: 0.5em;
+    padding-inline: 0.7em;
+
+    .bold {
+      color: var(--clr-white);
+      font-weight: var(--fw-700);
+    }
     
+
+    .share {
+      display: flex;
+      flex-direction: column;
+      .person{
+        text-transform: lowercase;
+        color: hsla(185, 41%, 84%,0.6);
+        /* font-weight: var(--fw-700); */
+        font-size: 14px;
+      }
+    }
   }
   .price {
     color: var(--clr-cyan);
@@ -151,8 +178,9 @@ body {
     cursor: pointer;
     width: 85%;
     padding-block: 0.2em;
-    margin: 0.5em auto;
+    margin-inline: auto;
+    margin-block-start: 1em;
     border-radius: 5px;
+    font-weight: var(--fw-700);
   }
-  
 }

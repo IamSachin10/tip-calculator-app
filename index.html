@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/vite.svg">
   <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="./src/css/main.css">
 </head>
 
 <body>
@@ -16,22 +17,22 @@
       <div class="calculation">
         <form action="/action" class="form">
           <label for="bill">Bill</label>
-          <input type="number" id="bill" class="bill" name="bill" data-id="bill" value="">
+          <input type="number" id="bill" class="bill input-bold" name="bill" data-id="bill-amount" required min="0" value="">
           <div class="icon">
             <img src="./src/images/icon-dollar.svg" class="icon-img" alt="icon-dollar">
           </div>
           <p>select tip %</p>
           <div class="percentage" data-id="percentage">
-            <p data-id="5">5%</p>
-            <p data-id="10">10%</p>
-            <p data-id="15">15%</p>
-            <p data-id="25">25%</p>
-            <p data-id="50">50%</p>
-            <input placeholder="custom" type="number" data-id="custom">
+            <button type="button" class="btn right" data-id="btn">5%</button>
+            <button type="button" class="btn" data-id="btn">10%</button>
+            <button type="button" class="btn right" data-id="btn">15%</button>
+            <button type="button" class="btn" data-id="btn">25%</button>
+            <button type="button" class="btn right" data-id="btn">50%</button>
+            <input placeholder="custom" type="number"  data-id="custom">
           </div>
 
           <label for="peopel">number of people</label>
-          <input type="number" id="people" data-id="people" class="people" name="people"  value="5">
+          <input type="number" id="people" data-id="people" class="people"  required ="people" min="1" max="10" value="1">
           <div class="people-icon">
             <img src="./src/images/icon-person.svg" class="peopel-icon-img" alt="icon-person">
           </div>
@@ -40,14 +41,25 @@
       </div>
       <!-- show the total -->
       <div class="show">
-        <div class="amount item">
-          <p>tip amount</p>
-          <p class="price" data-id="price">$42.7</p>
+        <div>
+
+          <div class="amount item">
+            <div class="tip-share share">
+              
+              <p class="bold">tip amount</p>
+              <p class="person ">/ person</p>
+          </div>
+          <p class="price" data-id="tip">$42.7</p>
         </div>
         <div class="total item">
-          <p>total</p>
+          <div class="total-share share">
+            
+            <p class="bold">total</p>
+            <p class="person">/ people</p>
+          </div>
           <p class="price" data-id="total">$32.79</p>
         </div>
+      </div>
         <button type="reset" class="btn-reset" data-id="reset">reset</button>
       </div>
     </section>

@@ -1,36 +1,87 @@
-const bill = document.querySelector('.bill');
-const five = document.querySelector('[data-id="5"]');
-const price = document.querySelector('[data-id="price"]');
-const fullTotal = document.querySelector('[data-id="total"]');
-const reset = document.querySelector('[data-id="reset"]');
+(function app() {
+  const billAmount = document.querySelector('[data-id="bill-amount"]');
+  const button = document.querySelectorAll('[data-id="btn"]');
+  const numberOfPeople = document.querySelector('[data-id="people"]');
+  const tipAmount = document.querySelector('[data-id="tip"]');
+  const customTipAmount = document.querySelector('[data-id="custom"]');
+  const totalAmount = document.querySelector('[data-id="total"]');
+  const reset = document.querySelector('[data-id="reset"]');
 
-function input() {
-  const inputVal = bill.value;
-  const num = parseFloat(inputVal);
-  if (isNaN(num)) {
-    return;
+  function bill() {
+    const userInput = billAmount.value;
+    const convertUserInput = parseFloat(userInput);
+    return convertUserInput;
   }
-  return num;
-}
 
-function tip() {
-  const inputVal = five.textContent;
-  const change = inputVal.replace(/%/g, '');
-  const changeToNumber = parseFloat(change);
-  return changeToNumber;
-}
+  function split() {
+    const userInput = numberOfPeople.value;
+    const convertUserInput = parseFloat(userInput);
+    if (convertUserInput > 0) {
+      return convertUserInput;
+    }
 
-function cal() {
-  const per1 = input();
-  const per2 = tip();
-  if (!isNaN(per1) && !isNaN(per2)) {
-    const total = (per1 * per2) / 100;
-    const sum = per1 + total;
-    price.innerHTML = total.toFixed(2);
-    fullTotal.innerHTML = sum.toFixed(2);
+    return null;
   }
-}
 
-bill.addEventListener('change', cal);
+  // *TODO
+  // change the design patter of the function in your free time and don't forget about it
 
-five.addEventListener('click', cal);
+  customTipAmount.addEventListener('input', () => {
+    const customVal = customTipAmount.value;
+    const convertToNumber = parseFloat(customVal);
+
+    if (!Number.isNaN(convertToNumber)) {
+      const val = bill();
+      const customTip = (val * convertToNumber) / 100;
+      const customTotal = val + customTip;
+      tipAmount.textContent = `$${customTip.toFixed(2)}`;
+      totalAmount.textContent = `$${customTotal.toFixed(2)}`;
+    } else {
+      throw new Error('Something went wrong.');
+    }
+
+    numberOfPeople.addEventListener('input', () => {
+      const splitVal = split();
+      if (!Number.isNaN(splitVal)) {
+        const val = bill();
+        const calTip = (((val * convertToNumber) / 100) / splitVal);
+        const calTotal = ((val + calTip) / splitVal);
+        tipAmount.textContent = `$${calTip.toFixed(2)}`;
+        totalAmount.textContent = `$${calTotal.toFixed(2)}`;
+      }
+    });
+  });
+
+  button.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tipValue = btn.textContent;
+      const convertToNumber = parseFloat(tipValue);
+      if (!Number.isNaN(tipValue)) {
+        const val1 = bill();
+        const calTip = ((val1 * convertToNumber) / 100);
+        const calTotal = val1 + calTip;
+        tipAmount.textContent = `$${calTip.toFixed(2)}`;
+        totalAmount.textContent = `$${calTotal.toFixed(2)}`;
+      } else {
+        throw new Error(tipValue);
+      }
+
+      numberOfPeople.addEventListener('input', () => {
+        const splitVal = split();
+        if (!Number.isNaN(splitVal)) {
+          const val = bill();
+          const calTip = (((val * convertToNumber) / 100) / splitVal);
+          const calTotal = ((val + calTip) / splitVal);
+          tipAmount.textContent = `$${calTip.toFixed(2)}`;
+          totalAmount.textContent = `$${calTotal.toFixed(2)}`;
+        }
+      });
+    });
+  });
+
+  // reset
+  reset.addEventListener('click', () => {
+    tipAmount.textContent = '$0';
+    totalAmount.textContent = '$0';
+  });
+}());

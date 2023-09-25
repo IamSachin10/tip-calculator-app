@@ -1,3 +1,17 @@
-@media screen and (min-width: 768px) {
-    
+
+@import url('./variables.css');
+@media screen and (min-width: 40em) {
+    main {
+        display: grid;
+        place-items: center;
+    }
+    .card {
+        width: 65%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 1.5em;
+    }
+    .show {
+        justify-content: space-between;
+    }
 }
